@@ -210,7 +210,7 @@ ORDER BY `Times Rented` DESC;
 -- 7f ----------------------------------------------------------------------------
 
 /* Only displays the store numbers and totals*/
-SELECT x.store_id, CONCAT('$', x.total) As 'Total' FROM (
+SELECT x.store_id, x.total As 'Total' FROM (
 	SELECT store_id, SUM(amount) as total FROM payment
     INNER JOIN staff USING (staff_id)
     INNER JOIN store USING (store_id)
